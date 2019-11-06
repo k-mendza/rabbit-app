@@ -1,0 +1,25 @@
+version: '3.1'
+
+services:
+
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: postgres
+      POSRGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5500:5432"
+    networks:
+      - web
+  rabbit:
+    image: rabbitmq
+    restart: always
+    ports:
+      - "5672:5672"
+    networks:
+      - web
+
+networks:
+  web:
