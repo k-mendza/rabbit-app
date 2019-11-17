@@ -14,10 +14,11 @@ services:
     networks:
       - web
   rabbit:
-    image: rabbitmq
+    image: "rabbitmq:3.8.2-rc.1-management"
     restart: always
     ports:
       - "5672:5672"
+      - "15672:15672"
     networks:
       - web
 
